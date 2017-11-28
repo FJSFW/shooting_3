@@ -16,7 +16,7 @@ Vector2 cannonPos;      //!< 砲台の位置
 Vector2 bulletPos;      //!< 弾の位置
 Rect    targetRect;     //!< ターゲットの矩形
 int     score;          //!< スコア
-
+int ca=0;
 
 // ゲーム開始時に呼ばれる関数です。
 void Start()
@@ -51,7 +51,18 @@ void Update()
             bulletPos.x = -999; // 弾を発射可能な状態に戻す
         }
     }
-
+    //砲台の移動(C:HW16A207 森本義基)
+    if(cannonPos.y<-149){
+        ca=0;
+    }
+    if(cannonPos.y>-69){
+        ca=1;
+    }
+    if(ca==0){
+        cannonPos.y += 40*Time::deltaTime;
+    } else {
+        cannonPos.y -= 40*Time::deltaTime;
+    }
     // 背景の描画
     Clear(Color::cyan);
     FillRect(Rect(-320, -240, 640, 100), Color::green);
