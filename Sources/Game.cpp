@@ -59,13 +59,17 @@ void Update()
     // 弾の移動
     if (bulletPos.x > -999) {
         bulletPos.x += 10 * Time::deltaTime;
+        //右端を通り越したら再度発射可能にする　（黒津）
+        if (bulletPos.x > 320){
+                bulletPos.x = -999;
+        }
 
         // ターゲットと弾の当たり判定
         Rect bulletRect(bulletPos, Vector2(32, 20));
         if (targetRect.Overlaps(bulletRect)) {
             //ターゲットに当たった時のSE　HW16A209　谷津 峻哉
             PlaySound("se_maoudamashii_explosion06.mp3");
-            score += 1;         // スコアの加算
+            score += 100;         // スコアの加算
             bulletPos.x = -999; // 弾を発射可能な状態に戻す
         }
     }
@@ -103,7 +107,8 @@ void Update()
     // スコアの描画
     //スコアを大きく表示する(E：HW16A207 森本義基)
     SetFont("nicoca_v1.ttf", 100.0f);
-    DrawText(FormatString("%02d", score), Vector2(-319, 199), Color::black);
-    DrawText(FormatString("%02d", score), Vector2(-320, 200), Color::white);
+    //スコアを100点ずつ加点するようにし、5桁の表示に変更(F:HW16A072 黒津勇斗)
+    DrawText(FormatString("%05d", score), Vector2(-319, 199), Color::black);
+    DrawText(FormatString("%05d", score), Vector2(-320, 200), Color::white);
 }
 
