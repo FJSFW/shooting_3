@@ -29,7 +29,6 @@ void Start()
     bulletPos.x = -999;
     score = 0;
     
-    //PlayBGM(bgm_maoudamashii_8bit);
     
 }
 
@@ -38,8 +37,11 @@ void Update()
 {
     // 弾の発射
     if (bulletPos.x <= -999 && Input::GetKeyDown(KeyMask::Space)) {
+<<<<<<< HEAD
         //弾の発射時のSE　HW16A209　谷津 峻哉
         PlaySound("se_maoudamashii_explosion03.mp3");
+=======
+>>>>>>> feature/e_big_score_size
         bulletPos = cannonPos + Vector2(50, 10);
     }
 
@@ -77,7 +79,8 @@ void Update()
     FillRect(targetRect, Color::red);
 
     // スコアの描画
-    SetFont("nicoca_v1.ttf", 20.0f);//スコアを大きく表示する
+    //スコアを大きく表示する(E：HW16A207 森本義基)
+    SetFont("nicoca_v1.ttf", 100.0f);
     DrawText(FormatString("%02d", score), Vector2(-319, 199), Color::black);
     DrawText(FormatString("%02d", score), Vector2(-320, 200), Color::white);
 }
