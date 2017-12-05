@@ -37,11 +37,8 @@ void Update()
 {
     // 弾の発射
     if (bulletPos.x <= -999 && Input::GetKeyDown(KeyMask::Space)) {
-<<<<<<< HEAD
         //弾の発射時のSE　HW16A209　谷津 峻哉
         PlaySound("se_maoudamashii_explosion03.mp3");
-=======
->>>>>>> feature/e_big_score_size
         bulletPos = cannonPos + Vector2(50, 10);
     }
 
