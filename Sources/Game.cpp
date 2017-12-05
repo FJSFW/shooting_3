@@ -9,7 +9,6 @@
 // TODO: スコアを100点ずつ加算するようにし、5桁の表示に変える。(F)(実装:HW16A072 黒津 勇斗)
 // TODO: PlayBGM()関数を使って、BGMを再生する。(G)(実装:HW16A097 新甚 礁太)
 // TODO: PlaySound()関数を使って、弾の発射時とターゲットに当たった時にSEを再生する。(H)(実装:HW16A209 谷津 峻哉)
-// TODO: PlaySE()関数を使って、弾の発射時とターゲットに当たった時にSEを再生する。(H)(実装:HW16A209 谷津 峻哉)
 
 
 
@@ -58,7 +57,7 @@ void Update()
 
     // 弾の移動
     if (bulletPos.x > -999) {
-        bulletPos.x += 10 * Time::deltaTime;
+        bulletPos.x += 60 * Time::deltaTime;
         //右端を通り越したら再度発射可能にする　（黒津）
         if (bulletPos.x > 320){
                 bulletPos.x = -999;
